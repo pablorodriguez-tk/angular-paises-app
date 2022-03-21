@@ -11,17 +11,18 @@ export class PorCapitalComponent {
   hayError: boolean = false;
   paises: Country[] = [];
 
-  constructor(private PaisService: PaisService) {}
+  constructor(private paisService: PaisService) {}
 
   buscar(termino: string) {
     this.hayError = false;
     this.termino = termino;
 
-    this.PaisService.buscarCapital(termino).subscribe(
+    this.paisService.buscarCapital(termino).subscribe(
       (paises) => {
         console.log(paises);
 
         this.paises = paises;
+        console.log(this.paises);
       },
       (err) => {
         this.hayError = true;
